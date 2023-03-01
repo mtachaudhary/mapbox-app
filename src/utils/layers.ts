@@ -1,4 +1,6 @@
-export const dataLayer = {
+import type {LayerProps} from 'react-map-gl';
+
+export const dataLayer: LayerProps = {
   id: 'data',
   type: 'fill',
   paint: {
@@ -20,7 +22,7 @@ export const dataLayer = {
   }
 };
 
-export const clusterLayer = {
+export const clusterLayer: LayerProps = {
   id: 'clusters',
   type: 'circle',
   source: 'earthquakes',
@@ -31,7 +33,7 @@ export const clusterLayer = {
   }
 };
 
-export const clusterCountLayer = {
+export const clusterCountLayer: LayerProps = {
   id: 'cluster-count',
   type: 'symbol',
   source: 'earthquakes',
@@ -43,7 +45,7 @@ export const clusterCountLayer = {
   }
 };
 
-export const unclusteredPointLayer = {
+export const unclusteredPointLayer: LayerProps = {
   id: 'unclustered-point',
   type: 'circle',
   source: 'earthquakes',
@@ -56,7 +58,7 @@ export const unclusteredPointLayer = {
   }
 };
 
-export const countiesLayer = {
+export const countiesLayer: LayerProps = {
   id: 'counties',
   type: 'fill',
   'source-layer': 'original',
@@ -67,7 +69,7 @@ export const countiesLayer = {
 };
 
 // Highlighted county polygons
-export const highlightLayer = {
+export const highlightLayer: LayerProps = {
   id: 'counties-highlighted',
   type: 'fill',
   source: 'counties',

@@ -11,6 +11,7 @@ import Map, {
 } from 'react-map-gl';
 import Head from 'next/head'
 
+// import {updatePercentiles} from '@/utils/utils';
 import {updatePercentiles} from '@/utils/utils';
 import {
   dataLayer, 

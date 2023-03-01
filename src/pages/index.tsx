@@ -19,7 +19,8 @@ import {
   clusterCountLayer, 
   unclusteredPointLayer,
   countiesLayer,
-  highlightLayer
+  highlightLayer,
+  trafficLayer
 } from '@/utils/layers';
 
 import styles from '@/styles/Home.module.css'
@@ -113,13 +114,17 @@ export default function Home() {
             latitude: lat,
             zoom: zoom
           }}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
+          mapStyle="mapbox://styles/mapbox/streets-v12"
           mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
           interactiveLayerIds={interactiveLayerIds}
           onMouseMove={onHover}
           style={{height: 768}}
         >
           <Marker longitude={lng} latitude={lat} color="red" />
+          <Source id='traffic-data' type='vector' url='mapbox://mapbox.mapbox-traffic-v1'>
+            <Layer {...trafficLayer} />
+          </Source>
+
           {mapType === 'geojson' &&
             <Source id='geojson-data' type='geojson' data={data}>
               <Layer {...dataLayer} />

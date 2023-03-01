@@ -24,9 +24,6 @@ import {
 import styles from '@/styles/Home.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoidGF5eWFiLXdvcmsiLCJhIjoiY2xlbXg4bThvMDBqcDNwbnpzdXpwdmkzdCJ9.z4pD7ikxjYGoSVvYGkigwg';
-
-
 export default function Home() {
 
   const [year, setYear] = useState(2015);
@@ -116,7 +113,7 @@ export default function Home() {
             zoom: zoom
           }}
           mapStyle="mapbox://styles/mapbox/streets-v9"
-          mapboxAccessToken={MAPBOX_TOKEN}
+          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
           interactiveLayerIds={interactiveLayerIds}
           onMouseMove={onHover}
           style={{height: 768}}

@@ -80,3 +80,51 @@ export const highlightLayer: LayerProps = {
     'fill-opacity': 0.75
   }
 };
+
+
+export const trafficLayer: LayerProps = {
+  id: 'traffic',
+  type: 'line',
+  source: 'mapbox-traffic',
+  'source-layer': 'traffic',
+  paint: {
+    'line-width': 1.5,
+    'line-color' : [
+      'case',
+      [
+        '==',
+        'low',
+        [
+          'get', 'congestion'
+        ]
+      ],
+      "#aab7ef",
+      [
+        "==",
+        "moderate",
+        [
+          "get", "congestion"
+        ]
+      ],
+      "#4264fb",
+      [
+        "==",
+        "heavy",
+        [
+          "get", "congestion"
+        ]
+      ],
+      "#ee4e8b",
+      [
+        "==",
+        "severe",
+        [
+          "get", "congestion"
+        ]
+      ],
+      "#b43b71",
+      "#000000"
+    ]
+
+  }
+};

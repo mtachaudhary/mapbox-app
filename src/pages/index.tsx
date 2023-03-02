@@ -22,11 +22,15 @@ import {
   highlightLayer,
   trafficLayer
 } from '@/utils/layers';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import { saveMapType } from '@/redux/slice/mapSlice';
 
 import styles from '@/styles/Home.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default function Home() {
+  const dispatch = useDispatch<AppDispatch>();
 
   const [year, setYear] = useState(2015);
   const [allData, setAllData] = useState(null);
@@ -35,8 +39,11 @@ export default function Home() {
   const [lat, setLat] = useState(40);
   const [zoom, setZoom] = useState(3.5);
 
-  const [mapType, setMapType] = useState('geojson');
+  // const [mapType, setMapType] = useState('geojson');
   const [interactiveLayerIds, setInteractiveLayerId] = useState(null);
+
+  const { mapType } = useSelector( state => state.mapStore );
+  // console.log(mapType);
 
   useEffect(() => {
     /* global fetch */
@@ -76,7 +83,8 @@ export default function Home() {
 
   // Handle select dropdown
   const handleMapType = (event) => {
-    setMapType(event.target.value);
+    // setMapType(event.target.value);
+    dispatch( saveMapType(event.target.value) );
   }
 
   // Set layer interactive ids

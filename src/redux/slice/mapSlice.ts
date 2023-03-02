@@ -7,11 +7,11 @@ const mapSlice = createSlice({
     mapType: 'geojson'
   },
   reducers: {
-    setMapType: (state, action) => {
+    saveMapType: (state, action) => {
       state.mapType = action.payload;
     }
   }
 });
 
-export const { setMapType } = mapSlice.actions;
+export const { saveMapType } = mapSlice.actions;
 export default mapSlice;
